@@ -1,0 +1,40 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block twitter-center %}
+    <div class="t-center">
+        <div class="center-container">
+            {% for post in posts %}
+            <div class="post">
+                <div class="profile-pic">
+                    <img src="{% static 'twitter/images/user_1_prof.jpg' %}" alt="dp.jpg">
+                </div>
+                <div class="tweet-data">
+                    <div class="tweet-user-details">
+                        <span class="username">{{post.username}}</span>
+                        <span class="userid">@{{post.userid}}</span>
+                        <span class="time"> ·{{post.time|date:'SHORT_DATE_FORMAT'}}</span>
+                    </div>
+                    <div class="tweet-text">
+                        {{post.tweet_text}}
+                    </div>
+                    <div class="tweet-stats">
+                        <div class="tweet-upvotes">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <span>{{post.upvotes}}</span>
+                        </div>
+                        <div class="tweet-downvotes">
+                            <i class="fa-regular fa-thumbs-down"></i>
+                            <span>{{post.downvotes}}</span>
+                        </div>
+                        <div class="tweet-replies">
+                            <i class="fa-regular fa-comment"></i>
+                            <span>{{post.comments}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock twitter-center %}

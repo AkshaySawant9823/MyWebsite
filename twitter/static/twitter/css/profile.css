@@ -1,0 +1,106 @@
+div{
+    overflow: hidden;
+}
+
+.t-center{
+    background-color: rgb(32, 96, 152);
+}
+
+.profile-info{
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.tweets{
+    background-color: white;
+    overflow-y: scroll;
+}
+
+
+.profile-photo{
+    background-color: bisque;
+    width: 30%;
+    border-right: 5px rgb(32, 96, 152) solid;
+}
+
+.profile-photo img{
+    width: 100%;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.profile-details{
+    width: 100%;
+}
+
+.details1,
+.details2 {
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.details1{
+    padding: 10px;
+    background-color: white;
+    margin-bottom: 5px;
+}
+
+.details2{
+    background-color: bisque;
+}
+
+#username{
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+#userid{
+    text-align: left;
+    color: rgba(0,0,0,0.8);
+    font-size: 1.1rem;
+}
+
+.join{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.join span{
+    color: grey;
+    font-weight: 600;
+}
+
+.join .date{
+    color: black;
+}
+
+.user-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 10px;
+    border-left: 5px rgb(32, 96, 152) solid;
+}
+
+.user-data:hover{
+    background-color: rgba(0,0,0,0.2);
+}
+
+.stat-kind{
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.following{
+    border-left: 0;
+}
+
+.stat{
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: rgba(0,0,0,0.7);
+}

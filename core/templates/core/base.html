@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %} Document {% endblock title %}
+    </title>
+    {% block css_files %}
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    {% endblock css_files %}
+    <script src="https://kit.fontawesome.com/b1214dcc8a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="nav-container">
+        <nav>
+            <a href="/"><img src="{% static 'core/images/logo-1.png' %}" class="logo"></a>
+            <ul id="sidemenu">
+                <li><a href="/#header">Home</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#roles">Roles</a></li>
+                <li><a href="/#portfolio">Portfolio</a></li>
+                <li><a href="/#contact">Contact</a></li>
+                <i class="fas fa-times" onclick="closemenu()"></i>
+            </ul>
+            <i class="fas fa-bars" onclick="openmenu()"></i>
+        </nav>
+    </div>
+            {% block content %}
+            {% endblock content %}
+            
+            {% block jsFiles %}
+            {% endblock jsFiles %}
+</body>
+</html>

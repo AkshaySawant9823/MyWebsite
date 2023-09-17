@@ -1,0 +1,61 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block css_files %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'summarizer/css/style.css' %}">
+{% endblock css_files %}
+
+{% block content %}
+<div id="summary-main-container">
+<div id="main">
+    <form action="" method="post" id="summarizer-form">
+        {% csrf_token %}
+        <h3><i class="fa-solid fa-arrow-right-long"></i> Raw Text</h3>
+        <div id="text-container">
+            <textarea name="text" id="text" rows="12" placeholder="Enter text here." required>{{text}}</textarea>
+            <span id="clear">clear</span>
+            <div id="tooltip-clear" class="tooltip"></div>
+        </div>
+        <br>
+        <div id="params">
+            <div class="main-length">
+                <span class="length">Summary Min Length : </span>
+                <span class="length-value" id="min-val">{{minlen}}</span><br>
+                <input type="range" name="min_length" id="min_length" min="20" max="400" value="{{minlen}}">
+            </div>
+            <div class="main-length">
+                <div>
+                    <label for="language" id="language-label">Choose language: </label>
+                    <select name="language" id="language">
+                        {% for option in options %}
+                        <option value="{{ option.value }}" {% if option.value == language %}selected{% endif %}>{{ option.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <button type="submit" id="submit">Summarize & Translate</button>
+            </div>
+            <div class="main-length">
+                <span class="length">Summary Max Length : </span>
+                <span class="length-value" id="max-val">{{maxlen}}</span><br>
+                <input type="range" name="max_length" id="max_length" min="50" max="1000" value="{{maxlen}}">
+            </div>
+        </div>
+            </form>
+    <h3><i class="fa-solid fa-arrow-right-long"></i> Summarized Text</h3>
+    <div id="summary-container">
+        <textarea name="summary" id="summary" rows="8" placeholder="You'll get summary here." disabled>{{summary}}</textarea>
+        <div id="copyIcon" class="icon"><i class="fa-regular fa-copy"></i></div>
+        <div id="tooltip-summary" class="tooltip">Copied to clipboard</div>
+    </div>
+</div>
+</div>
+
+{% endblock content %}
+
+{% block jsFiles %}
+
+<script src="{% static 'summarizer/js/script.js' %}"></script>
+
+{% endblock jsFiles %}

@@ -1,0 +1,173 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block content %}
+<!-- -----------------------Header--------------------------- -->
+<div id="header">
+    <div class="container">
+        <div class="header-text" id="home">
+            <p>Aspiring Data Scientist</p>
+            <h1>Hi, I'm <span>Akshay Sawant</span><br><h3>From Pune, Maharashtra</h3></h1>
+            <a href="{% static 'core/docs/Akshay Sawant.pdf' %}" download class="btn btn2">Download Resume <i class="fa-solid fa-download"></i></a>
+        </div>
+    </div>
+    </div>
+<!-- -----------------------About--------------------------- -->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="{% static 'core/images/akshayProfilePic.png' %}">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>Very passionate individual being excellent in predictive modeling, now seeking a challenging position to utilize my skills and abilities that offer professional & organizational growth, while being resourceful and innovative. Always been superb in maths related stuff and got better hands over programming skills.</p>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <div class="left">
+                        <h2>Excellent</h2>
+                        <ul>
+                            <li>Python</li>
+                            <li>Machine Learning</li>
+                            <li>Deep Learning</li>
+                            <li>Natural Language Processing</li>
+                            <li>ANN, CNN</li>
+                            <li>RNN, LSTM, GRU</li>
+                            <li>Regression</li>
+                            <li>Classification</li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <h2>Intermediate</h2>
+                        <ul>
+                            <li>Web Scraping</li>
+                            <li>Flask</li>
+                            <li>MySQL</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>Javascript</li>
+                            <li>Postman</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>2016-2020</span><br>Bachelor of Engineering (VIIT, Pune)<br>8.67 - CGPA</li>
+                        <li><span>2014-2016</span><br>HSC (KBPV, Pune)<br>82.62%</li>
+                        <li><span>2013-2014</span><br>SSC (Jawhar, Maharashtra)<br>94.40%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- -------------------------------Roles--------------------------- -->
+
+<div id="roles">
+<div class="container">
+    <h1 class="sub-title">My Roles</h1>
+    <div class="roles-list">
+        <div>
+            <i class="fa-solid fa-computer"></i>
+            <h2>ML/DL Engineer</h2>
+            <p>Can work efficiently on both ML and DL related algorithms. Have good data gathering and preprocessing skills to make the data clean.
+            </p>
+            <a href="#">Learn more</a>
+        </div>
+        <div>
+            <i class="fa-solid fa-chart-line"></i>
+            <h2>Data Scientist</h2>
+            <p>Can build end-to-end projects right from scratch. Have hands on relational and non-relational databases.
+            </p>
+            <a href="#">Learn more</a>
+        </div>
+        <div>
+            <i class="fa-brands fa-python"></i>
+            <h2>Python Developer</h2>
+            <p>Confident in coding skills and can work with web frameworks like Flask. Worked with different libraries such as pygame, tkinter, selenium, bs4.
+            </p>
+            <a href="#">Learn more</a>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- -------------------------------Portfolio---------------------------- -->
+
+<div id="portfolio">
+<div class="container">
+    <h1 class="sub-title">My Work</h1>
+    <div class="work-list">
+        <div class="work">
+            <img src="{% static 'core/images/work-2.png' %}">
+            <div class="layer">
+                <h2>Scroll The Tweets and Ask Questions</h2>
+                <p>You can scroll through the tweets and ask questions that can be answered in few words.</p>
+                <a href="{% url 'twitterHome' %}"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+        <div class="work">
+            <img src="{% static 'core/images/analytics.jpg' %}">
+            <div class="layer">
+                <h2>Text Summarizer and Translator</h2>
+                <p>Get summarized text as per demand and translate it to the language you want.</p>
+                <a href="{% url 'summarizerHome' %}"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+        <div class="work">
+            <img src="{% static 'core/images/youtube-downloader.jpg' %}">
+            <div class="layer">
+                <h2>Youtube Downloader</h2>
+                <p>Download your favourite youtube videos and playlists at all the available resolutions.</p>
+                <a href="/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn">See more</a>
+</div>
+</div>
+
+<!-- ----------------------------Contact----------------------- -->
+
+<div id="contact">
+<div class="container">
+    <div class="row">
+        <div class="contact-left">
+            <h1 class="sub-title">Contact me</h1>
+            <p><i class="fa-solid fa-envelope"></i>akshaysawant8983@gmail.com</p>
+            <p><i class="fa-solid fa-phone"></i> +91-8788959650</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/AkshayS_8983"><i class="fa-brands fa-instagram"></i></a>
+                <a><i class="fa-brands fa-facebook"></i></a>
+                <a><i class="fa-brands fa-github"></i></a>
+                <a><i class="fa-solid fa-location-dot"></i></a>
+            </div>
+            <a href="{% static 'core/docs/Akshay Sawant.pdf' %}" download class="btn btn2">Download Resume</a>
+        </div>
+        <div class="contact-right">
+            <form>
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                <button type="submit" class="btn btn2">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="copyright">
+    <p>Copyright @ Akshay <i class="fa-solid fa-heart"></i></p>
+</div>
+</div>
+{% endblock content %}
+
+{% block jsFiles %}
+<script src="{% static 'core/js/script.js' %}"></script>
+{% endblock jsFiles %}

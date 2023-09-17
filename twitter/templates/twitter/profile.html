@@ -1,0 +1,86 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block css_files %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'twitter/css/profile.css' %}">
+{% endblock css_files %}
+
+{% block twitter-center %}
+    <div class="t-center">
+        <div class="profile-info">
+            <div class="profile-photo">
+                <img src="{% static 'twitter/images/user_1_prof.jpg' %}" alt="dp.jpg">
+            </div>
+            <div class="profile-details">
+                <div class="details1">
+                    <div class="names">
+                        <div id="username">Akshay Sawant</div>
+                        <div id="userid">@akshays8983</div>
+                    </div>
+                    <div class="join">
+                        <div id="first">
+                           <span>First Tweet : </span>
+                           <span class="date">2020-12-8</span>
+                        </div>
+                        <div id="last">
+                            <span>Last Tweet : </span>
+                            <span  class="date">2022-8-24</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="details2">
+                    <div class="user-data following">
+                        <p class="stat-kind">Following</p>
+                        <p class="stat stat-values" id="following">15</p>
+                    </div>
+                    <div class="user-data">
+                        <p class="stat-kind">Followers</p>
+                        <p class="stat stat-values" id="followers">36</p>
+                    </div>
+                    <div class="user-data">
+                        <p class="stat-kind">Tweets</p>
+                        <p class="stat stat-values" id="tweets">{{ tweets }}</p>
+                    </div>
+                    <div class="user-data">
+                        <p class="stat-kind">Likes</p>
+                        <p class="stat stat-values" id="likes">25</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tweets">
+            {% for post in posts %}
+            <div class="post">
+                <div class="profile-pic">
+                    <img src="{% static 'twitter/images/user_1_prof.jpg' %}" alt="dp.jpg">
+                </div>
+                <div class="tweet-data">
+                    <div class="tweet-user-details">
+                        <span class="username">{{post.username}}</span>
+                        <span class="userid">{{post.userid}}</span>
+                        <span class="time"> ·{{post.time}}</span>
+                    </div>
+                    <div class="tweet-text">
+                        {{post.tweet_text}}
+                    </div>
+                    <div class="tweet-stats">
+                        <div class="tweet-upvotes">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <span class="stat-values">{{post.upvotes}}</span>
+                        </div>
+                        <div class="tweet-downvotes">
+                            <i class="fa-regular fa-thumbs-down"></i>
+                            <span class="stat-values">{{post.downvotes}}</span>
+                        </div>
+                        <div class="tweet-replies">
+                            <i class="fa-regular fa-comment"></i>
+                            <span class="stat-values">{{post.comments}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock twitter-center %}

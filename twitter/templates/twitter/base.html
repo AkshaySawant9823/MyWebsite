@@ -1,0 +1,76 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block css_files %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'twitter/css/style.css' %}">
+{% endblock css_files %}
+
+{% block title %}
+    Twitter
+{% endblock title %}
+
+{% block content %}
+<div class="t-container">
+    <div class="t-left">
+        <div class="t-options">
+            <a href="{% url 'twitterHome' %}">
+                <p class="option">
+                    <i class="fa-solid fa-house"></i>&emsp;Home
+                </p>
+            </a>
+            <a href="{% url 'twitterNotification' %}">
+                <p class="option"><i class="fa-solid fa-envelope"></i>&emsp;Notifications</p>
+            </a>
+            <a href="{% url 'twitterProfile' %}">
+            <p class="option"><i class="fa-solid fa-user"></i>&emsp; Profile</p>
+            </a>
+            <a href="{% url 'twitterLanguage' %}">
+            <p class="option"><i class="fa-solid fa-earth-asia"></i>&emsp;Language</p>
+            </a>
+        </div>
+    </div>
+    
+    {% block twitter-center %}
+        <div class="t-center"></div>
+    {% endblock twitter-center %}
+
+    {% block twitter-right %}
+    <div class="t-right">
+        <div class="ask-container">
+            <form method='post' action="{% url 'twitterHome' %}" id="que-form">
+                {% csrf_token %}
+                <p id="ask-me">---ASK-A-QUESTION---</p>
+                <textarea name="question" id="question" rows="4" placeholder="Type your question here..." required>{{question}}</textarea>
+                <button type="submit" id="que-submit" value="Submit">Submit</button>
+                {% if responses %}
+                <div id="responses">
+                    <table>
+                        <tr>
+                            <th>Confidence</th>
+                            <th>Answer</th>
+                        </tr>
+                        {% for score, answer in responses %}
+                            <tr>
+                                <td>{{score}}</td>
+                                <td>{{answer}}</td>
+                            </tr>
+                        {% endfor %}
+                        </table>
+                        {% if time_taken %}
+                            <p>Took {{time_taken}} seconds<p>
+                        {% else %}
+                            <p>Working on it. Stay tuned.<p>
+                        {% endif %}
+                </div>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+    {% endblock twitter-right %}
+</div>
+{% endblock content %}
+
+{% block jsFiles %}
+<script src="{% static 'twitter/js/script.js' %}"></script>
+{% endblock jsFiles %}
